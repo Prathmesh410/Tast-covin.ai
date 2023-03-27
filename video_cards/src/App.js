@@ -6,7 +6,7 @@ import './App.css';
 import CreateForm from './components/createform';
 import Modal from './components/model';
 import Card from './components/card';
-
+import Bucket from './components/bucket';
 function App() {
   const [cards, setCards] = useState([]);
   const [buckets, setBuckets] = useState([]);
@@ -37,13 +37,15 @@ function App() {
     <div className="App">
       <CreateForm/>
       <h1>My Cards</h1>
-      <div className="card-container">
+      {/* <div className="card-container">
         {cards.map((card) => (
           <Card key={card.id} data={card} onCardClick={handleCardClick} />
         ))}
       </div>
-      {modalData && <Modal data={modalData} onClose={handleCloseModal} />}
-   
+      {modalData && <Modal data={modalData} onClose={handleCloseModal} />} */}
+    {buckets.map((bucket) => (
+        <Bucket key={bucket} bucketName={bucket} cards={cards} />
+      ))}
 
 
     </div>
